@@ -13050,11 +13050,11 @@ h5,
 @media (min-width: 768px) {
   .ftco-intro .overlay {
     position: absolute;
-    top: -180px;
-    left: -300px;
+    top: 121px;
+    left: -774px;
     right: 0;
-    bottom: -120px;
-    width: 40%;
+    bottom: 67px;
+    width: 90%;
     content: '';
     opacity: 1;
     background: #EDA82C;
@@ -13062,7 +13062,24 @@ h5,
     /* IE 9 */
     -webkit-transform: rotate(20deg);
     /* Safari 3-8 */
-    transform: rotate(38deg);
+    transform: rotate(45deg);
+  }
+
+  .ftco-intro .overlay1 {
+    position: absolute;
+    top: 121px;
+    left: -345px;
+    right: 0;
+    bottom: 67px;
+    width: 90%;
+    content: '';
+    opacity: 1;
+    background: #EDA82C;
+    -ms-transform: rotate(20deg);
+    /* IE 9 */
+    -webkit-transform: rotate(20deg);
+    /* Safari 3-8 */
+    transform: rotate(45deg);
   }
 }
 
