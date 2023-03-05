@@ -27,6 +27,25 @@
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
+
+	<script>
+
+		window.onload = function () {
+			// Get the values from local storage
+			const drop = localStorage.getItem("drop");
+
+			// Set the values of the span elements on the page
+			document.getElementById("drop").innerHTML = drop;
+
+			// Retrieve the duration from local storage
+			const durationInDays = localStorage.getItem("durationInDays");
+
+			// Display the duration on the page
+			document.getElementById("durationInDays").innerHTML = durationInDays + " days";
+		}
+
+	</script>
+
 </head>
 
 <body>
@@ -55,6 +74,7 @@
 	</nav>
 	<!-- END nav -->
 
+
 	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
@@ -70,6 +90,55 @@
 		</div>
 	</section>
 
+
+	<section class="ftco-section ftco-no-pt bg-light">
+		<div class="container">
+			<div class="row no-gutters">
+				<div class="col-md-12	featured-top">
+					<div class="row no-gutters">
+						<div class="col-md-0 d-flex align-items-center">
+
+						</div>
+						<div class="col-md-12 d-flex align-items-center">
+							<div class="services-wrap rounded-right w-100">
+								<h3 class="heading-section mb-4">Great! Based on your search your cars listed below 👇
+								</h3>
+								<div class="row d-flex mb-4">
+									<div class="col-md-4 d-flex align-self-stretch ftco-animate">
+										<div class="services w-100 text-center">
+											<div class="icon d-flex align-items-center justify-content-center"><span
+													class="flaticon-route"></span></div>
+											<div class="text w-100">
+												<h3 class="heading mb-2"><span id="drop"></span></h3>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 d-flex align-self-stretch ftco-animate">
+										<div class="services w-100 text-center">
+											<div class="icon d-flex align-items-center justify-content-center"><span
+													class="flaticon-handshake"></span></div>
+											<div class="text w-100">
+												<h3 class="heading mb-2"> <span id="durationInDays"></span> </h3>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 d-flex align-self-stretch ftco-animate">
+										<div class="services w-100 text-center">
+											<div class="icon d-flex align-items-center justify-content-center"><span
+													class="flaticon-rent"></span></div>
+											<div class="text w-100">
+												<h3 class="heading mb-2">Car type: Micro</h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								<p><a href="#" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
 
 	<section class="ftco-section bg-light">
 		<div class="container">

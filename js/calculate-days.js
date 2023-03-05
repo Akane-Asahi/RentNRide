@@ -11,11 +11,11 @@ function redirectToPage() {
     if (selectedValue === "Sedan") {
         window.location.href = "car-sedan.html";
     } else if (selectedValue === "SUV") {
-        window.location.href = "contact.html";
+        window.location.href = "car-suv.html";
     } else if (selectedValue === "Micro") {
-        window.location.href = "car-sedan.html";
+        window.location.href = "car-micro.html";
     } else if (selectedValue === "Minibus") {
-        window.location.href = "car-sedan.html";
+        window.location.href = "car-minibus.html";
     } else {
         alert("Please select a valid option.");
     }
@@ -30,8 +30,12 @@ function calculateDurationAndRedirect() {
 
     // Calculate the duration in days
     const durationInDays = Math.round((departureTime - arrivalTime) / (1000 * 60 * 60 * 24)) + 1;
-
+    if (durationInDays < 0) {
+        alert("Your Pick-up date is ahead of your Drop-off date")
+        return null;
+    }
     // Save the duration in local storage
     localStorage.setItem("durationInDays", durationInDays);
+    redirectToPage();
 
 }
