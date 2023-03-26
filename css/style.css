@@ -12053,18 +12053,18 @@ h5,
 }
 
 .hero-wrap.hero-wrap-2 {
-  height: 600px !important;
+  height: 450px !important;
   position: relative;
 }
 
 .hero-wrap.hero-wrap-2 .overlay {
   width: 100%;
   opacity: .3;
-  height: 600px;
+  height: 450px;
 }
 
 .hero-wrap.hero-wrap-2 .slider-text {
-  height: 600px !important;
+  height: 450px !important;
 }
 
 .slider-text {

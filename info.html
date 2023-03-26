@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Information</title>
+</head>
+
+<body>
+    <h1>Information</h1>
+    <p>Name: <span id="name"></span></p>
+    <p>Age: <span id="age"></span></p>
+    <p>Gender: <span id="gender"></span></p>
+
+    <script>
+        document.getElementById("name").innerHTML = sessionStorage.getItem("name");
+        document.getElementById("age").innerHTML = sessionStorage.getItem("age");
+        document.getElementById("gender").innerHTML = sessionStorage.getItem("gender");
+    </script>
+</body>
+
+</html>
