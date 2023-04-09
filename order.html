@@ -74,7 +74,7 @@
             <div class="col-md-12 d-flex align-items-center">
               <div class="services-wrap rounded-right w-100">
                 <h1 class="mb-3 bread">Great Choice! 🎉</h1>
-                <form onsubmit="sendEmail(); return false;" class="p-5 contact-form">
+                <form onsubmit="redirectToInfo(); return false;" class="p-5 contact-form">
                   <!-- <p><span id="name"></span></p>
                   <p><span id="hour"></span></p>
                   <p><span id="price"></span></p> -->
@@ -234,7 +234,7 @@
     document.getElementById("price").value = "Estimated Price: " + sessionStorage.getItem("price");
   </script>
 
-  <script>
+  <!-- <script>
     function sendEmail() {
       Email.send({
         SecureToken: "e09eb659-369b-4ecc-bfa8-fbd4712abae0",
@@ -254,10 +254,10 @@
       );
       setTimeout(function () {
         redirectToInfo();
-      }, 5000);
+      }, 2000);
 
     }
-  </script>
+  </script> -->
 
   <script>
     function redirectToInfo() {
@@ -288,7 +288,28 @@
 
       sessionStorage.setItem("uniqueId", uniqueId);
 
-      window.location.href = "demo-order-confirmation.html";
+      Email.send({
+        SecureToken: "e09eb659-369b-4ecc-bfa8-fbd4712abae0",
+        To: 'info@rentnride.com.bd',
+        From: "customer@rentnride.com.bd",
+        Subject: document.getElementById("carname").value + " Booking Request",
+        Body: "Name: " + document.getElementById("name").value
+          + "<br> Email: " + document.getElementById("email").value
+          + "<br> Order Confirmation #: " + uniqueId
+          + "<br> Phone: " + document.getElementById("phone").value
+          + "<br><br> Date: " + document.getElementById("book_pick_date").value
+          + "<br>" + document.getElementById("carname").value
+          + "<br><br>" + document.getElementById("hour").value
+          + "<br>" + document.getElementById("price").value
+          + "<br><br> Message: " + document.getElementById("message").value
+      }).then(
+        message => alert("Request Sent! We will contact you shortly!")
+      );
+      setTimeout(function () {
+        window.location.href = "demo-order-confirmation.html";
+      }, 2000);
+
+
     }
   </script>
 

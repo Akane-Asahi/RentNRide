@@ -3,6 +3,9 @@
 <html lang="en">
 
 <head>
+	<title>Rent a Car in Dhaka, Car Rental Solution Bangladesh: Rent N Ride</title>
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -284,9 +287,10 @@
 																align="center" role="presentation">
 																<tr>
 																	<td align="center">
-																		<img src="images/RentNRide-logo-invert.svg"
-																			alt="Logo" width="220" height="35"
-																			class="logo">
+																		<a href="index.html"><img
+																				src="images/RentNRide-logo-invert.svg"
+																				alt="Logo" width="220" height="35"
+																				class="logo"></a>
 																	</td>
 																</tr>
 															</table>
@@ -814,7 +818,13 @@
 		let chk = extractNumericValue(str);
 		console.log(chk);
 
-		document.getElementById("hour").innerHTML = extractNumericValue(sessionStorage.getItem("hour")) + " Hours";
+		let duration = extractNumericValue(sessionStorage.getItem("hour"));
+		if (duration == 1) {
+			document.getElementById("hour").innerHTML = extractNumericValue(sessionStorage.getItem("hour")) + " Month";
+		} else {
+			document.getElementById("hour").innerHTML = extractNumericValue(sessionStorage.getItem("hour")) + " Hours";
+		}
+
 
 		document.getElementById("book_pick_date").innerHTML = sessionStorage.getItem("book_pick_date");
 		document.getElementById("uniqueId").innerHTML = sessionStorage.getItem("uniqueId");
