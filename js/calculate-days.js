@@ -1,6 +1,6 @@
 function redirectToPage() {
     // Get the values from the input fields
-    const drop = document.getElementById("drop").value;
+    const drop = document.getElementById("to").value;
     // Save the values to local storage
     localStorage.setItem("drop", drop);
 

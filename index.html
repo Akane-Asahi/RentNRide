@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="css/icomoon.css">
   <link rel="stylesheet" href="css/style.css">
 
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 
 <body>
@@ -69,7 +70,7 @@
         <div class="col-lg-8 ftco-animate">
           <div class="text w-100 text-center mb-md-5 pb-md-5">
             <h1 class="mb-4">Car Rentals Made Easy with <br> Rent N Ride</h1>
-            <h2><a href="tel:+8801885507771" style="color: #fff;">CALL: +8801715623808</a></h2>
+            <h2><a href="tel:+8801885507771" style="color: #fff;">CALL: +88 0188 5507771</a></h2>
             <h3 style="font-size: 18px; color: #fff;">The most "EASIEST" platform in Bangladesh to rent your desired car
             </h3>
             <a href="https://vimeo.com/45830194"
@@ -93,8 +94,7 @@
         <div class="col-md-12	featured-top">
           <div class="row no-gutters">
             <div class="col-md-4 d-flex align-items-center">
-              <form onsubmit="calculateDurationAndRedirect(); return false;"
-                class="request-form ftco-animate bg-primary">
+              <form onsubmit="sendEmail(); return false;" class="request-form ftco-animate bg-primary">
                 <h2>Make your trip</h2>
                 <div class="form-group">
                   <label for="" class="label">Choose Car Type</label>
@@ -103,11 +103,18 @@
                     <option value="SUV">SUV</option>
                     <option value="Micro">Micro</option>
                     <option value="Minibus">Minibus</option>
+                    <!-- <option value="Pickup Truck">Pickup Truck</option> -->
                   </select>
                 </div>
-                <div class="form-group">
-                  <label for="" class="label">Drop-off location</label>
-                  <input type="text" id="drop" class="form-control" placeholder="City, Airport, Station, etc" required>
+                <div class="d-flex">
+                  <div class="form-group mr-2">
+                    <label for="" class="label">From</label>
+                    <input type="text" id="from" class="form-control" placeholder="Your place" required>
+                  </div>
+                  <div class="form-group mr-2">
+                    <label for="" class="label">To</label>
+                    <input type="text" id="to" class="form-control" placeholder="Destination" required>
+                  </div>
                 </div>
                 <div class="d-flex">
                   <div class="form-group mr-2">
@@ -124,7 +131,22 @@
                   <input type="text" class="form-control" id="time_pick" placeholder="Time" required>
                 </div>
                 <div class="form-group">
-                  <input type="submit" value="Check Available Cars" class="btn btn-secondary py-3 px-4">
+                  <label for="" class="label">Your Name</label>
+                  <input type="text" id="name" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="d-flex">
+                  <div class="form-group mr-2">
+                    <label for="" class="label">Phone Number</label>
+                    <input type="text" id="phone" class="form-control" placeholder="Phone Number" required>
+                  </div>
+                  <div class="form-group mr-2">
+                    <label for="" class="label">email</label>
+                    <input type="text" id="email" class="form-control" placeholder="u@email.com" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" value="Request A Car" class="btn btn-secondary py-3 px-4">
                 </div>
               </form>
             </div>
@@ -160,7 +182,7 @@
                     </div>
                   </div>
                 </div>
-                <p><a href="#" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</a></p>
+                <p><a href="pricing.html" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</a></p>
               </div>
             </div>
           </div>
@@ -190,14 +212,15 @@
                     <span class="cat">Sedan</span>
                     <p class="price ml-auto">৳2000 <span>/4hrs</span></p>
                   </div>
-                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
+                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1" type="button"
+                      onclick="redirectToInfo('Toyota Axio', '4 hour', '৳ 2000')">Book now</a> <a href="#"
                       class="btn btn-secondary py-2 ml-1">Details</a></p>
                 </div>
               </div>
             </div>
             <div class="item">
               <div class="car-wrap rounded ftco-animate">
-                <div class="img rounded d-flex align-items-end" style="background-image: url(images/car-2.jpg);">
+                <div class="img rounded d-flex align-items-end" style="background-image: url(images/car-19.jpg);">
                 </div>
                 <div class="text">
                   <h2 class="mb-0"><a href="#">Toyota Allion</a></h2>
@@ -205,7 +228,8 @@
                     <span class="cat">Sedan</span>
                     <p class="price ml-auto">৳2000 <span>/4hrs</span></p>
                   </div>
-                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
+                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1" type="button"
+                      onclick="redirectToInfo('Toyota Allion', '4 hour', '৳ 2000')">Book now</a> <a href="#"
                       class="btn btn-secondary py-2 ml-1">Details</a></p>
                 </div>
               </div>
@@ -220,7 +244,8 @@
                     <span class="cat">Sedan</span>
                     <p class="price ml-auto">৳3500 <span>/4hrs</span></p>
                   </div>
-                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
+                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1" type="button"
+                      onclick="redirectToInfo('Toyota Allion', '4 hour', '৳ 3500')">Book now</a> <a href="#"
                       class="btn btn-secondary py-2 ml-1">Details</a></p>
                 </div>
               </div>
@@ -235,7 +260,8 @@
                     <span class="cat">Sedan</span>
                     <p class="price ml-auto">৳5000 <span>/4hrs</span></p>
                   </div>
-                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
+                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1" type="button"
+                      onclick="redirectToInfo('Mercedes Benz', '4 hour', '৳ 5000')">Book now</a> <a href="#"
                       class="btn btn-secondary py-2 ml-1">Details</a></p>
                 </div>
               </div>
@@ -250,7 +276,8 @@
                     <span class="cat">Sedan</span>
                     <p class="price ml-auto">৳5000 <span>/4hrs</span></p>
                   </div>
-                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
+                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1" type="button"
+                      onclick="redirectToInfo('BMW Series 5', '4 hour', '৳ 5000')">Book now</a> <a href="#"
                       class="btn btn-secondary py-2 ml-1">Details</a></p>
                 </div>
               </div>
@@ -265,7 +292,8 @@
                     <span class="cat">Sedan</span>
                     <p class="price ml-auto">৳5000 <span>/4hrs</span></p>
                   </div>
-                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
+                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1" type="button"
+                      onclick="redirectToInfo('Audi A3', '4 hour', '৳ 5000')">Book now</a> <a href="#"
                       class="btn btn-secondary py-2 ml-1">Details</a></p>
                 </div>
               </div>
@@ -280,7 +308,8 @@
                     <span class="cat">Micro</span>
                     <p class="price ml-auto">৳5000 <span>/4hrs</span></p>
                   </div>
-                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
+                  <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1" type="button"
+                      onclick="redirectToInfo('Toyota Esquire', '4 hour', '৳ 5000')">Book now</a> <a href="#"
                       class="btn btn-secondary py-2 ml-1">Details</a></p>
                 </div>
               </div>
@@ -387,7 +416,7 @@
   </section>
 
 
-  <section class="ftco-section testimony-section bg-light">
+  <!-- <section class="ftco-section testimony-section bg-light">
     <div class="container">
       <div class="row justify-content-center mb-5">
         <div class="col-md-7 text-center heading-section ftco-animate">
@@ -462,7 +491,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section class="ftco-section">
     <div class="container">
@@ -663,7 +692,42 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+
+
   <script src="js/calculate-days.js"></script>
+  <script>
+    function redirectToInfo(carname, hour, price) {
+      sessionStorage.setItem("carname", carname);
+      sessionStorage.setItem("hour", hour);
+      sessionStorage.setItem("price", price);
+      window.location.href = "order.html";
+    }
+  </script>
+
+  <script>
+    function sendEmail() {
+      Email.send({
+        SecureToken: "e09eb659-369b-4ecc-bfa8-fbd4712abae0",
+        To: 'info@rentnride.com.bd',
+        From: "customer@rentnride.com.bd",
+        Subject: "Car request from home page",
+        Body: "Name: " + document.getElementById("name").value
+          + "<br> Phone: " + document.getElementById("phone").value
+          + "<br> Email: " + document.getElementById("email").value
+          + "<br><br> Car Type: " + document.getElementById("cars").value
+          + "<br> From: " + document.getElementById("from").value
+          + "<br> To: " + document.getElementById("to").value
+          + "<br> Start: " + document.getElementById("book_pick_date").value
+          + "<br> End: " + document.getElementById("book_off_date").value
+          + "<br> Pick me at: " + document.getElementById("time_pick").value
+      }).then(
+        message => alert(message + "! Request Sent! We will contact you shortly!")
+      );
+      setTimeout(function () {
+        calculateDurationAndRedirect();
+      }, 5000);
+    }
+  </script>
 </body>
 
 </html>
