@@ -12240,12 +12240,12 @@ h5,
 
 .request-form .form-control {
   border: transparent !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
   height: 40px !important;
   background: transparent !important;
   color: rgba(255, 255, 255, 0.7) !important;
   font-size: 12px;
-  border-radius: 0px;
+  border-radius: 3px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
@@ -13009,6 +13009,18 @@ h5,
   font-weight: 600;
 }
 
+@media (max-width: 767.98px) {
+  .services-wrap {
+    padding: 2em 2em;
+    font-size: 12px;
+  }
+
+  .form-control {
+    font-size: 12px;
+  }
+
+}
+
 .services .icon {
   width: 90px;
   height: 90px;
@@ -13157,6 +13169,14 @@ h5,
   border-radius: 5px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
+}
+
+@media (max-width: 767.98px) {
+
+  .form-control {
+    font-size: 12px;
+  }
+
 }
 
 .form-control:focus,
