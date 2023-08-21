@@ -135,10 +135,63 @@
                   <input type="text" id="name" class="form-control" placeholder="Your name" required>
                 </div>
                 <div class="d-flex">
+                  <!-- <div class="form-group mr-2">
+                    <label for="" class="label">Phone Number</label>
+                    <input type="text" id="phone" class="form-control" placeholder="Phone Number" required>
+                  </div> -->
                   <div class="form-group mr-2">
                     <label for="" class="label">Phone Number</label>
                     <input type="text" id="phone" class="form-control" placeholder="Phone Number" required>
+                    <div id="phone-error" class="error-message-popup"></div>
                   </div>
+                  <style>
+                    .error-message-popup {
+                      display: none;
+                      position: absolute;
+                      background-color: red;
+                      color: white;
+                      padding: 10px;
+                      border-radius: 5px;
+                      z-index: 1000;
+                    }
+
+                    .popup {
+                      display: none;
+                      position: fixed;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      background-color: rgba(0, 0, 0, 0.8);
+                      z-index: 1000;
+                    }
+
+                    .popup-content {
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      background-color: white;
+                      padding: 20px;
+                      border-radius: 5px;
+                      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                    }
+
+                    .popup-close-button {
+                      display: block;
+                      margin-top: 10px;
+                      background-color: #007bff;
+                      color: white;
+                      border: none;
+                      padding: 10px 20px;
+                      border-radius: 5px;
+                      cursor: pointer;
+                    }
+                  </style>
+
+
+
+
                   <div class="form-group mr-2" style="margin-right: 0px !important;">
                     <label for="" class="label">email</label>
                     <input type="text" id="email" class="form-control" placeholder="u@email.com" required>
@@ -202,6 +255,774 @@
         </div>
       </div>
   </section>
+
+  <div id="popup" class="popup">
+
+    <!-- start -->
+
+
+    <div class="wave-long-wrapper">
+    </div>
+
+
+    <div class="fireworks-wrapper">
+
+      <div class="firework left wave yellow">
+        <svg viewBox="0 0 27 128">
+          <path fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="8"
+            d="M2.27373675e-13,119.1 C2.27373675e-13,109.3 18,109.4 18.1,99.5 C18.2,89.6 0.1,89.6 0.2,79.7 C0.3,69.8 18.2,70 18.3,60.1 C18.4,50.2 0.3,50.2 0.4,40.3 C0.5,30.4 18.4,30.5 18.5,20.7 C18.6,10.9 0.5,10.8 0.6,0.9"
+            transform="translate(4 4)"></path>
+        </svg>
+      </div>
+      <div class="firework left wave yellow large">
+        <svg viewBox="56 94 26 264">
+          <path
+            d="M61.2 353.9c-.1-10.6 15.9-10.7 15.9-21.3 0-10.6-16.1-10.5-16.1-21.2s15.9-10.7 15.9-21.3c0-10.6-16.1-10.5-16.1-21.2s15.9-10.7 15.9-21.3c0-10.6-16.1-10.5-16.1-21.2s15.9-10.7 15.9-21.3c0-10.6-16.1-10.5-16.1-21.2s15.9-10.7 15.9-21.3c0-10.6-16.1-10.5-16.1-21.2s15.9-10.7 15.9-21.3c0-10.6-16.1-10.5-16.1-21.2"
+            stroke="#FFF" stroke-width="8" fill="none" stroke-linecap="round"></path>
+        </svg>
+      </div>
+      <div class="firework left wave cyan">
+        <svg viewBox="0 0 27 128">
+          <path fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="8"
+            d="M2.27373675e-13,119.1 C2.27373675e-13,109.3 18,109.4 18.1,99.5 C18.2,89.6 0.1,89.6 0.2,79.7 C0.3,69.8 18.2,70 18.3,60.1 C18.4,50.2 0.3,50.2 0.4,40.3 C0.5,30.4 18.4,30.5 18.5,20.7 C18.6,10.9 0.5,10.8 0.6,0.9"
+            transform="translate(4 4)"></path>
+        </svg>
+      </div>
+      <div class="firework left figure hex">
+        <svg viewBox="285 -12 30 27">
+          <path
+            d="M291.5 11.8l-4.9-8.4c-.82-1.42-.82-3.18 0-4.6l4.9-8.4c.82-1.43 2.35-2.3 4-2.3h9.8c1.65 0 3.18.87 4 2.3l4.9 8.4c.82 1.42.82 3.18 0 4.6l-4.9 8.4c-.82 1.43-2.35 2.3-4 2.3h-9.8c-1.65 0-3.18-.87-4-2.3z"
+            fill="#FFF"></path>
+        </svg>
+      </div>
+      <div class="firework left figure square">
+        <svg viewBox="366 -10 25 25">
+          <rect width="25" height="24.98" rx="5.4" fill="#FFF" transform="translate(366 -10)"></rect>
+        </svg>
+      </div>
+
+      <div class="firework right wave white">
+        <svg viewBox="0 0 27 128">
+          <path fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="8"
+            d="M2.27373675e-13,119.1 C2.27373675e-13,109.3 18,109.4 18.1,99.5 C18.2,89.6 0.1,89.6 0.2,79.7 C0.3,69.8 18.2,70 18.3,60.1 C18.4,50.2 0.3,50.2 0.4,40.3 C0.5,30.4 18.4,30.5 18.5,20.7 C18.6,10.9 0.5,10.8 0.6,0.9"
+            transform="translate(4 4)"></path>
+        </svg>
+      </div>
+      <div class="firework right wave cyan">
+        <svg viewBox="0 0 27 128">
+          <path fill="none" stroke="#FFF" stroke-linecap="round" stroke-width="8"
+            d="M2.27373675e-13,119.1 C2.27373675e-13,109.3 18,109.4 18.1,99.5 C18.2,89.6 0.1,89.6 0.2,79.7 C0.3,69.8 18.2,70 18.3,60.1 C18.4,50.2 0.3,50.2 0.4,40.3 C0.5,30.4 18.4,30.5 18.5,20.7 C18.6,10.9 0.5,10.8 0.6,0.9"
+            transform="translate(4 4)"></path>
+        </svg>
+      </div>
+      <div class="firework right wave yellow large">
+        <svg viewBox="56 94 26 264">
+          <path
+            d="M61.2 353.9c-.1-10.6 15.9-10.7 15.9-21.3 0-10.6-16.1-10.5-16.1-21.2s15.9-10.7 15.9-21.3c0-10.6-16.1-10.5-16.1-21.2s15.9-10.7 15.9-21.3c0-10.6-16.1-10.5-16.1-21.2s15.9-10.7 15.9-21.3c0-10.6-16.1-10.5-16.1-21.2s15.9-10.7 15.9-21.3c0-10.6-16.1-10.5-16.1-21.2s15.9-10.7 15.9-21.3c0-10.6-16.1-10.5-16.1-21.2"
+            stroke="#FFF" stroke-width="8" fill="none" stroke-linecap="round"></path>
+        </svg>
+      </div>
+      <div class="firework right figure triangle">
+        <svg viewBox="443 -9 26 24">
+          <path
+            d="M452.3-7c.74-1.22 2.07-1.96 3.5-1.96 1.43 0 2.76.74 3.5 1.96l4.4 7.5 4.4 7.5c.7 1.26.7 2.8-.02 4.04-.72 1.25-2.04 2.03-3.48 2.06h-17.5c-1.44-.03-2.76-.8-3.48-2.06-.7-1.25-.72-2.78-.02-4.04L448 .5l4.3-7.5z"
+            fill="#6cf0f2"></path>
+        </svg>
+      </div>
+      <div class="firework right figure plus">
+        <svg viewBox="212 -16 34 34">
+          <path d="M228.9-12v25.9M216 .9h25.9" stroke="#FFF" stroke-width="8" fill="none" stroke-linecap="round"></path>
+        </svg>
+      </div>
+
+      <div class="firework line top">
+        <svg viewBox="289 515 290 298">
+          <path d="M291.1 810s27.7-55.57 142.94-170.9C549.3 523.77 577 517 577 517" stroke="#FFF" stroke-width="5"
+            stroke-dasharray="5 31" fill="none"></path>
+        </svg>
+      </div>
+      <div class="firework line left">
+        <svg viewBox="289 515 290 298">
+          <path d="M291.1 810s27.7-55.57 142.94-170.9C549.3 523.77 577 517 577 517" stroke="#FFF" stroke-width="5"
+            stroke-dasharray="5 31" fill="none"></path>
+        </svg>
+      </div>
+      <div class="firework line bottom">
+        <svg viewBox="289 515 290 298">
+          <path d="M291.1 810s27.7-55.57 142.94-170.9C549.3 523.77 577 517 577 517" stroke="#FFF" stroke-width="5"
+            stroke-dasharray="5 31" fill="none"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- ends -->
+
+    <div class="popup-content">
+      <span id="popup-message"></span>
+      <!-- <button id="close-popup" class="popup-close-button">Close</button> -->
+    </div>
+  </div>
+
+  <style>
+    .logo,
+    .wave-long-wrapper,
+    .scoreboard-wrapper,
+    .scoreboard-bg,
+    .fireworks-wrapper,
+    .close-btn-wrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+    }
+
+    *,
+    *:after,
+    *:before {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+
+      -webkit-font-smoothing: antialiased;
+      background-color: #000000
+    }
+
+
+
+    .wave-long-wrapper {
+      z-index: 9;
+      width: 30rem;
+      height: 0;
+      -webkit-transform: translateY(12rem);
+      transform: translateY(12rem);
+      -webkit-animation: translateWaveWrapper 1.7s 0.9s forwards ease;
+      animation: translateWaveWrapper 1.7s 0.9s forwards ease;
+    }
+
+    .wave-long-line {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .wave-long-line svg {
+      -webkit-animation: waveReveal 0.5s 0.7s forwards ease;
+      animation: waveReveal 0.5s 0.7s forwards ease;
+      width: 100%;
+      stroke-dasharray: 885;
+    }
+
+    .scoreboard-wrapper {
+      width: 13rem;
+      height: 15.5rem;
+      -webkit-transform: translateY(1.6rem);
+      transform: translateY(1.6rem);
+      z-index: 5;
+    }
+
+    .scoreboard-bg {
+      width: 2rem;
+      height: 2rem;
+      opacity: 0;
+      will-change: width, height;
+      -webkit-animation: sbExpandY 0.45s 0.9s forwards ease,
+        sbExpandX 0.4s 1.3s forwards ease, sbOpacity 0.1s 0.9s forwards ease;
+      animation: sbExpandY 0.45s 0.9s forwards ease, sbExpandX 0.4s 1.3s forwards ease,
+        sbOpacity 0.1s 0.9s forwards ease;
+    }
+
+    .scoreboard-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      z-index: 60;
+      width: 100%;
+      height: 100%;
+    }
+
+    .scoreboard-title {
+      font-weight: 400;
+      display: block;
+      font-size: 2.5rem;
+      color: #ffc125;
+      margin: 2.4rem 1rem;
+      -webkit-animation: slideInText 0.8s 1.3s both ease;
+      animation: slideInText 0.8s 1.3s both ease;
+    }
+
+    .fireworks-wrapper {
+      width: 15rem;
+      height: 15.5rem;
+      z-index: 5;
+    }
+
+    .paused svg path {
+      -webkit-animation: none !important;
+      animation: none !important;
+      stroke-dashoffset: 0 !important;
+    }
+
+    .firework {
+      width: 1rem;
+      position: absolute;
+    }
+
+    .firework.yellow svg path {
+      stroke: #ffc125;
+    }
+
+    .firework.yellow:nth-child(1) {
+      -webkit-transform: rotate(-45deg) translateY(-4rem);
+      transform: rotate(-45deg) translateY(-4rem);
+    }
+
+    .firework.yellow:nth-child(2) {
+      -webkit-transform: rotate(-95deg) translateX(-4rem) translateY(-4rem);
+      transform: rotate(-95deg) translateX(-4rem) translateY(-4rem);
+    }
+
+    .firework.yellow:nth-child(2) svg path {
+      -webkit-animation-delay: 1.6s;
+      animation-delay: 1.6s;
+    }
+
+    .firework.cyan {
+      -webkit-transform: rotate(-100deg) translateX(-8rem) translateY(-5rem);
+      transform: rotate(-100deg) translateX(-8rem) translateY(-5rem);
+    }
+
+    .firework.cyan svg path {
+      stroke: #6cf0f2;
+      -webkit-animation-delay: 1.7s;
+      animation-delay: 1.7s;
+    }
+
+    .firework.left {
+      left: 0;
+    }
+
+    .firework.right {
+      right: 0;
+    }
+
+    .firework.right.white {
+      -webkit-transform: rotate(45deg) translateY(-2rem) translateX(-5.5rem);
+      transform: rotate(45deg) translateY(-2rem) translateX(-5.5rem);
+    }
+
+    .firework.right.white svg path {
+      stroke: #fff;
+    }
+
+    .firework.right.cyan {
+      -webkit-transform: rotate(45deg) translateY(-4rem);
+      transform: rotate(45deg) translateY(-4rem);
+    }
+
+    .firework.right.yellow {
+      -webkit-transform: rotate(115deg) translateY(-5rem) translateX(7rem);
+      transform: rotate(115deg) translateY(-5rem) translateX(7rem);
+    }
+
+    .firework.figure {
+      opacity: 0;
+      -webkit-animation: hex 0.5s 2.5s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+      animation: hex 0.5s 2.5s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .firework.figure svg {
+      -webkit-animation: none;
+      animation: none;
+    }
+
+    .firework.figure.hex {
+      -webkit-animation-name: hex;
+      animation-name: hex;
+    }
+
+    .firework.figure.square {
+      -webkit-animation-name: square;
+      animation-name: square;
+      bottom: 0;
+    }
+
+    .firework.figure.triangle {
+      -webkit-animation-delay: 2.6s;
+      animation-delay: 2.6s;
+      -webkit-animation-name: triangle;
+      animation-name: triangle;
+    }
+
+    .firework.figure.plus {
+      -webkit-animation-delay: 2.6s;
+      animation-delay: 2.6s;
+      -webkit-animation-name: plus;
+      animation-name: plus;
+    }
+
+    .firework.wave svg {
+      -webkit-animation: translateWaveWrapper 1.7s 0.9s forwards ease;
+      animation: translateWaveWrapper 1.7s 0.9s forwards ease;
+    }
+
+    .firework.wave svg path {
+      stroke-dasharray: 170;
+      stroke-dashoffset: 170;
+      -webkit-animation: dashOffset 1.7s 0.7s forwards ease;
+      animation: dashOffset 1.7s 0.7s forwards ease;
+    }
+
+    .firework.wave.large svg path {
+      -webkit-animation: dashOffsetLarge 1.7s 0.7s forwards ease;
+      animation: dashOffsetLarge 1.7s 0.7s forwards ease;
+      stroke-dasharray: 335;
+      stroke-dashoffset: 335;
+    }
+
+    .firework.line {
+      width: 9rem;
+      overflow: hidden;
+      opacity: 0;
+      -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      -webkit-animation: dottedLineClip 1s 1.3s forwards ease;
+      animation: dottedLineClip 1s 1.3s forwards ease;
+    }
+
+    .firework.line svg {
+      -webkit-transform-origin: 400% 400%;
+      transform-origin: 400% 400%;
+      -webkit-animation: dottedLineOutro 2s 1.7s forwards ease;
+      animation: dottedLineOutro 2s 1.7s forwards ease;
+    }
+
+    .firework.line.top {
+      top: -8rem;
+      right: -5rem;
+    }
+
+    .firework.line.left {
+      top: 0;
+      bottom: 0;
+      left: -10rem;
+      -webkit-transform: rotateY(180deg) rotateZ(35deg);
+      transform: rotateY(180deg) rotateZ(35deg);
+    }
+
+    .firework.line.bottom {
+      top: 130%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      -webkit-transform: rotateY(180deg) rotateX(180deg) rotateZ(-35deg);
+      transform: rotateY(180deg) rotateX(180deg) rotateZ(-35deg);
+    }
+
+    @-webkit-keyframes hex {
+      0% {
+        opacity: 1;
+        -webkit-transform: translateX(8rem) translateY(0) scale(2) rotateZ(45deg);
+        transform: translateX(8rem) translateY(0) scale(2) rotateZ(45deg);
+      }
+
+      99% {
+        -webkit-transform: translateX(0) translateY(-10rem) scale(0.8);
+        transform: translateX(0) translateY(-10rem) scale(0.8);
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes hex {
+      0% {
+        opacity: 1;
+        -webkit-transform: translateX(8rem) translateY(0) scale(2) rotateZ(45deg);
+        transform: translateX(8rem) translateY(0) scale(2) rotateZ(45deg);
+      }
+
+      99% {
+        -webkit-transform: translateX(0) translateY(-10rem) scale(0.8);
+        transform: translateX(0) translateY(-10rem) scale(0.8);
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes square {
+      0% {
+        opacity: 1;
+        -webkit-transform: translateX(-1rem) translateY(1rem) scale(2) rotateZ(45deg);
+        transform: translateX(-1rem) translateY(1rem) scale(2) rotateZ(45deg);
+      }
+
+      99% {
+        -webkit-transform: translateX(-5rem) translateY(4rem) scale(0.8);
+        transform: translateX(-5rem) translateY(4rem) scale(0.8);
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes square {
+      0% {
+        opacity: 1;
+        -webkit-transform: translateX(-1rem) translateY(1rem) scale(2) rotateZ(45deg);
+        transform: translateX(-1rem) translateY(1rem) scale(2) rotateZ(45deg);
+      }
+
+      99% {
+        -webkit-transform: translateX(-5rem) translateY(4rem) scale(0.8);
+        transform: translateX(-5rem) translateY(4rem) scale(0.8);
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes triangle {
+      0% {
+        opacity: 1;
+        -webkit-transform: translateX(2rem) translateY(0) scale(2) rotateZ(45deg);
+        transform: translateX(2rem) translateY(0) scale(2) rotateZ(45deg);
+      }
+
+      99% {
+        -webkit-transform: translateX(8rem) translateY(-4rem) scale(0.8);
+        transform: translateX(8rem) translateY(-4rem) scale(0.8);
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes triangle {
+      0% {
+        opacity: 1;
+        -webkit-transform: translateX(2rem) translateY(0) scale(2) rotateZ(45deg);
+        transform: translateX(2rem) translateY(0) scale(2) rotateZ(45deg);
+      }
+
+      99% {
+        -webkit-transform: translateX(8rem) translateY(-4rem) scale(0.8);
+        transform: translateX(8rem) translateY(-4rem) scale(0.8);
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes plus {
+      0% {
+        opacity: 1;
+        -webkit-transform: translateX(2rem) translateY(8rem) scale(2) rotateZ(45deg);
+        transform: translateX(2rem) translateY(8rem) scale(2) rotateZ(45deg);
+      }
+
+      99% {
+        -webkit-transform: translateX(8rem) translateY(4rem) scale(0.8);
+        transform: translateX(8rem) translateY(4rem) scale(0.8);
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes plus {
+      0% {
+        opacity: 1;
+        -webkit-transform: translateX(2rem) translateY(8rem) scale(2) rotateZ(45deg);
+        transform: translateX(2rem) translateY(8rem) scale(2) rotateZ(45deg);
+      }
+
+      99% {
+        -webkit-transform: translateX(8rem) translateY(4rem) scale(0.8);
+        transform: translateX(8rem) translateY(4rem) scale(0.8);
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .close-btn-wrapper {
+      top: auto;
+      bottom: 1rem;
+      z-index: 9;
+      width: 2rem;
+      height: 2rem;
+      -webkit-animation: closeTranslate 0.5s 4s forwards linear;
+      animation: closeTranslate 0.5s 4s forwards linear;
+    }
+
+    @-webkit-keyframes clipReveal {
+      from {
+        -webkit-clip-path: circle(4vh at 50% 50%);
+        clip-path: circle(4vh at 50% 50%);
+      }
+
+      to {
+        -webkit-clip-path: circle(100% at 50% 50%);
+        clip-path: circle(100% at 50% 50%);
+      }
+    }
+
+    @keyframes clipReveal {
+      from {
+        -webkit-clip-path: circle(4vh at 50% 50%);
+        clip-path: circle(4vh at 50% 50%);
+      }
+
+      to {
+        -webkit-clip-path: circle(100% at 50% 50%);
+        clip-path: circle(100% at 50% 50%);
+      }
+    }
+
+    @-webkit-keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes slideUpLogo {
+      from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+
+      to {
+        -webkit-transform: translateY(-13.5rem);
+        transform: translateY(-13.5rem);
+      }
+    }
+
+    @keyframes slideUpLogo {
+      from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+
+      to {
+        -webkit-transform: translateY(-13.5rem);
+        transform: translateY(-13.5rem);
+      }
+    }
+
+    @-webkit-keyframes waveReveal {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes waveReveal {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @-webkit-keyframes sbExpandY {
+      to {
+        height: 100%;
+      }
+    }
+
+    @keyframes sbExpandY {
+      to {
+        height: 100%;
+      }
+    }
+
+    @-webkit-keyframes sbExpandX {
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes sbExpandX {
+      to {
+        width: 100%;
+      }
+    }
+
+    @-webkit-keyframes sbOpacity {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes sbOpacity {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes slideInText {
+      from {
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+        opacity: 0;
+      }
+
+      to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInText {
+      from {
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+        opacity: 0;
+      }
+
+      to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes dottedLineOutro {
+      to {
+        -webkit-transform: rotateZ(45deg);
+        transform: rotateZ(45deg);
+      }
+    }
+
+    @keyframes dottedLineOutro {
+      to {
+        -webkit-transform: rotateZ(45deg);
+        transform: rotateZ(45deg);
+      }
+    }
+
+    @-webkit-keyframes dottedLineClip {
+      1% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    @keyframes dottedLineClip {
+      1% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    @-webkit-keyframes translateWaveWrapper {
+      from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+
+      to {
+        -webkit-transform: translateY(-4rem);
+        transform: translateY(-4rem);
+      }
+    }
+
+    @keyframes translateWaveWrapper {
+      from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+
+      to {
+        -webkit-transform: translateY(-4rem);
+        transform: translateY(-4rem);
+      }
+    }
+
+    @-webkit-keyframes dashOffset {
+      50% {
+        stroke-dashoffset: 170;
+      }
+
+      100% {
+        stroke-dashoffset: -170;
+      }
+    }
+
+    @keyframes dashOffset {
+      50% {
+        stroke-dashoffset: 170;
+      }
+
+      100% {
+        stroke-dashoffset: -170;
+      }
+    }
+
+    @-webkit-keyframes dashOffsetLarge {
+      50% {
+        stroke-dashoffset: 335;
+      }
+
+      100% {
+        stroke-dashoffset: -335;
+      }
+    }
+
+    @keyframes dashOffsetLarge {
+      50% {
+        stroke-dashoffset: 335;
+      }
+
+      100% {
+        stroke-dashoffset: -335;
+      }
+    }
+  </style>
 
 
   <section class="ftco-section ftco-no-pt bg-light">
@@ -754,7 +1575,7 @@
     }
   </script>
 
-  <script>
+  <!-- <script>
     function sendEmail() {
       Email.send({
         SecureToken: "e09eb659-369b-4ecc-bfa8-fbd4712abae0",
@@ -777,7 +1598,87 @@
         calculateDurationAndRedirect();
       }, 5000);
     }
+  </script> -->
+
+  <script>
+    function validatePhoneNumber(phoneNumber) {
+      const phoneNumberRegex = /^(017|013|015|016|018|019)\d{8}$/;
+      return phoneNumberRegex.test(phoneNumber);
+    }
+
+    function showErrorMessage(message) {
+      const errorPopup = document.getElementById("phone-error");
+      errorPopup.textContent = message;
+      errorPopup.style.display = "block";
+      setTimeout(function () {
+        errorPopup.style.display = "none";
+      }, 5000);
+    }
+
+    function showPopupMessage(message) {
+      const popup = document.getElementById("popup");
+      const popupMessage = document.getElementById("popup-message");
+      popupMessage.textContent = message;
+      popup.style.display = "block";
+
+      const closePopupButton = document.getElementById("close-popup");
+      closePopupButton.addEventListener("click", function () {
+        popup.style.display = "none";
+      });
+    }
+
+    function sendEmail() {
+      const phoneNumberInput = document.getElementById("phone");
+      const phoneNumber = phoneNumberInput.value;
+
+      if (!phoneNumber.match(/^\d+$/)) {
+        showErrorMessage("Phone number must contain (0-9) digits");
+        return;
+      }
+
+      if (phoneNumber.length !== 11) {
+        showErrorMessage("Number has to be 11 digits.");
+        return;
+      }
+
+      if (!validatePhoneNumber(phoneNumber)) {
+        showErrorMessage("Mobile number must start with 017, 013, 015, 016, 018, or 019.");
+        return;
+      }
+
+      // Clear any previous error messages
+      document.getElementById("phone-error").style.display = "none";
+
+      Email.send({
+        // ... Your existing code for sending the email
+        SecureToken: "e09eb659-369b-4ecc-bfa8-fbd4712abae0",
+        To: 'info@rrentnride.com.bd',
+        From: "customer@rentnride.com.bd",
+        Subject: "Car request from home page",
+        Body: "Name: " + document.getElementById("name").value
+          + "<br> Phone: " + document.getElementById("phone").value
+          + "<br> Email: " + document.getElementById("email").value
+          + "<br><br> Car Type: " + document.getElementById("cars").value
+          + "<br> From: " + document.getElementById("from").value
+          + "<br> To: " + document.getElementById("to").value
+          + "<br> Start: " + document.getElementById("book_pick_date").value
+          + "<br> End: " + document.getElementById("book_off_date").value
+          + "<br> Pick me at: " + document.getElementById("time_pick").value
+      }).then(
+        message => {
+          const successMessage = message + "! Thank you for Request! We will contact you shortly!";
+          showPopupMessage(successMessage);
+        }
+      );
+
+      setTimeout(function () {
+        calculateDurationAndRedirect();
+      }, 5000);
+    }
   </script>
+
+
+
 </body>
 
 </html>
